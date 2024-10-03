@@ -1,0 +1,140 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+    var asideImage = Model?.Value<IPublishedContent>("asideImage")?.Url() ?? "";
+    var asideBackgroundImage = Model?.Value<IPublishedContent>("asideContactBackgroundImage")?.Url() ?? "";
+    var articleOneImage = Model?.Value<IPublishedContent>("articleOneImage")?.Url() ?? "";
+    var articleTwoImage = Model?.Value<IPublishedContent>("articleTwoImage")?.Url() ?? "";
+    var contactMainImage = Model?.Value<IPublishedContent>("contactMainImage")?.Url() ?? "";
+    var contactBackgroundOne = Model?.Value<IPublishedContent>("contactBackgroundImageOne")?.Url() ?? "";
+    var contactBackgroundTwo = Model?.Value<IPublishedContent>("contactBackgroundImageTwo")?.Url() ?? "";
+}
+
+<section id="page-title">
+    <div class="container">
+        <div class="content">
+            <h2>@Model?.Value("pageTitleHeadline")</h2>
+            <ul class="breadcrumbs">
+                <li class="breadcrumb-link"><a href="@Model?.Value("pageTitleBreadcrumbUrlOne")">@Model?.Value("pageTitleBreadcrumbTextOne")</a></li>
+                <li class="fa-solid fa-chevron-right"></li>
+                <li class="breadcrumb-link"><a href="@Model?.Value("pageTitleBreadcrumbUrlTwo")">@Model?.Value("pageTitleBreadcrumbTextTwo")</a></li>
+                <li class="fa-solid fa-chevron-right"></li>
+                <li class="breadcrumb-link"><a href="#"></a>@Model.Value("pageTitleBreadcrumbCurrentText")</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="risk-management">
+    <div class="container">
+        <div class="sideinformation">
+            <div class="about-us">
+                <h4>@Model?.Value("asideHeadline")</h4>
+                <img src="@asideImage" alt="Meeting in group">
+                <p>@Model?.Value("asideText")</p>
+            </div>
+            <div class="infobox">
+                <h4>@Model?.Value("asideContactTitle")</h4>
+                <p>@Model?.Value("asideContactText")</p>
+                <form action="">
+                    <label for="email"></label>
+                    <div class="input-container">
+                        <input type="E-mail-address"  placeholder="E-mail adress">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                </form>
+                <img class="mailsvg" src="@asideBackgroundImage" alt="">
+            </div>
+        </div>
+
+        <div class="content">
+            <img src="@articleOneImage" alt="cheering people">
+            <div class="text-section">
+                <h3>@Model?.Value("articleOneTitle")</h3>
+                <p class="bulleted">@Model?.Value("articleOneBulletedTextOne")</p>
+                <p class="bulleted">@Model?.Value("articleOneBulletedTextTwo")</p>
+                <p class="bulleted">@Model?.Value("articleOneBulletedTextThree")</p>
+            </div>
+            <div class="text-section">
+                <h3>@Model?.Value("articleTwoTitle")</h3>
+                <p>@Model?.Value("articleTwoTextOne")</p>
+                <p class="bulleted">@Model?.Value("articleTwoBulletedTextOne")</p>
+                <p class="bulleted">@Model?.Value("articleTwoBulletedTextTwo")</p>
+                <p class="bulleted">@Model?.Value("articleTwoBulletedTextThree")</p>
+                <p>@Model?.Value("articleTwoTextTwo")</p>
+                <img src="@articleTwoImage" alt="ongoing meeting">
+            </div>
+
+            <div class="text-section">
+                <h3>@Model?.Value("articleThreeTitle")</h3>
+                <p>@Model?.Value("articleThreeText")</p>
+                <p class="bulleted">@Model?.Value("articleThreeBulletedTextOne")</p>
+                <p class="bulleted">@Model?.Value("articleThreeBulletedTextTwo")</p>
+                <p class="bulleted">@Model?.Value("articleThreeBulletedTextThree")</p>
+                <p class="bulleted">@Model?.Value("articleThreeBulletedTextFour")</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="question-form">
+    <div class="container">
+        <form action="">
+            <h3>Have a question ?</h3>
+
+            <div class="flex">
+                <div>
+                    <label for="name"></label>
+                    <input type="text" name="name" id="name" placeholder="Name" tabindex="1">
+                </div>
+
+                <div>
+                    <label for="email"></label>
+                    <input type="text" name="email" id="name" placeholder="Email" tabindex="2">
+                </div>
+            </div>
+
+            <div class="question-input">
+                <label for="question"></label>
+                <textarea type="text" name="question" id="question" rows="6" cols="30" placeholder="Question" tabindex="3"></textarea>
+            </div>
+            <button class="btn-theme mt-3">Submit</button>
+        </form>
+    </div>
+</section>
+
+<section id="contact-info">
+    <div class="container">
+        <div class="parent">
+            <img class="child-1" src="@contactMainImage" alt="">
+            <img class="child-2" src="@contactBackgroundOne" alt="">
+            <img class="child-3" src="@contactBackgroundTwo" alt="">
+        </div>
+        <div class="content">
+            <h2>@Model?.Value("contactHeadline")</h2>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>@Model?.Value("contactBoxOneTitle")</p>
+                </div>
+                <p>@Model?.Value("contactBoxOneText")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>@Model?.Value("contactBoxTwoTitle")</p>
+                </div>
+                <p>@Model?.Value("contactBoxTwoText")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>@Model?.Value("contactBoxThreeTitle")</p>
+                </div>
+                <p>@Model?.Value("contactBoxThreeText")</p>
+            </div>
+        </div>
+    </div>
+</section>

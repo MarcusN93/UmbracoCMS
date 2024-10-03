@@ -1,0 +1,14 @@
+#footer {
+    background-color: $black;
+    .container {
+        padding-top: 0.5rem;
+        display: flex;
+        align-items: center;
+
+        .sub-color {
+            margin-left: 0.2rem;
+            color: $sub-color2;
+            
+        }
+    }
+}

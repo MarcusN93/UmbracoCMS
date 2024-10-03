@@ -1,0 +1,44 @@
+#header {
+    .upper-header {
+        background-color: $main-color;
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            padding-top: 1rem;
+            p {
+                color: $white;
+            }
+            .social-media {
+                display: flex;
+                gap: 1rem;
+                i {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .lower-header {
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            #menu { 
+                grid-area: menu; 
+                display: none;
+    
+                @include lg {
+                    display: block;
+                }
+                
+                nav {
+                    display: flex;
+                    gap: 15px;
+                }
+            }
+        }
+    }
+}

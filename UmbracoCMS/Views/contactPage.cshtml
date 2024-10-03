@@ -1,0 +1,106 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+    var contactMainImage = Model?.Value<IPublishedContent>("contactMainImage")?.Url() ?? "";
+    var contactBackgroundOne = Model?.Value<IPublishedContent>("contactBackgroundImageOne")?.Url() ?? "";
+    var contactBackgroundTwo = Model?.Value<IPublishedContent>("contactBackgroundImageTwo")?.Url() ?? "";
+    var backgroundImage = Model?.Value<IPublishedContent>("mapBackgroundImage")?.Url() ?? "";
+    var collabImageOne = Model?.Value<IPublishedContent>("collaborationsImageOne")?.Url() ?? "";
+    var collabImageTwo = Model?.Value<IPublishedContent>("collaborationsImageTwo")?.Url() ?? "";
+    var collabImageThree = Model?.Value<IPublishedContent>("collaborationsImageThree")?.Url() ?? "";
+    var collabImageFour = Model?.Value<IPublishedContent>("collaborationsImageFour")?.Url() ?? "";
+    var collabImageFive = Model?.Value<IPublishedContent>("collaborationsImageFive")?.Url() ?? "";
+    var collabImageSix = Model?.Value<IPublishedContent>("collaborationsImageSix")?.Url() ?? "";
+}
+
+<section id="page-title">
+    <div class="container">
+        <div class="content">
+            <h2>@Model?.Value("pageTitleHeadline")</h2>
+            <ul class="breadcrumbs">
+                <li class="breadcrumb-link"><a href="@Model?.Value("pageTitleBreadcrumbUrl")">@Model?.Value("pageTitleBreadcrumbText")</a></li>
+                <li class="fa-solid fa-chevron-right"></li>
+                <li class="breadcrumb-link"><a href="#"></a>@Model?.Value("pageTitleBreadcrumbCurrentText")</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="contact-info">
+    <div class="container">
+        <div class="parent">
+            <img class="child-1" src="@contactMainImage" alt="">
+            <img class="child-2" src="@contactBackgroundOne" alt="">
+            <img class="child-3" src="@contactBackgroundTwo" alt="">
+        </div>
+        <div class="content">
+            <h2>@Model?.Value("contactHeadline")</h2>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>@Model?.Value("contactBoxOneTitle")</p>
+                </div>
+                <p>@Model?.Value("contactBoxOneText")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>@Model?.Value("contactBoxTwoTitle")</p>
+                </div>
+                <p>@Model?.Value("contactBoxTwoText")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>@Model?.Value("contactBoxThreeTitle")</p>
+                </div>
+                <p>@Model?.Value("contactBoxThreeText")</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="map-section" style="background-image:url(@backgroundImage)">
+    <div class="container">
+        <div class="section-title mt-5">
+            <p>@Model?.Value("mapSectionTitle")</p>
+            <h2>@Model?.Value("mapHeadline")</h2>
+        </div>
+        <p class="italic mt-4">@Model?.Value("mapText")</p>
+        <form class="contact-form">
+            <div class="flex">
+                <div class="name">
+                    <input type="text" placeholder="Name" tabindex="1">
+                </div>
+                <div class="phone">
+                    <input type="text" placeholder="Phone" tabindex="2">
+                </div>
+            </div>
+            <div class="flex">
+                <div class="email">
+                    <input type="email" placeholder="Email address" tabindex="3">
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Financial consulting<i class="fa-solid fa-chevron-down"></i></button>
+                </div>
+            </div>
+            <div class="flex">
+                <a href="@Model?.Value("mapButtonUrl")" class="btn-theme mt-2">@Model?.Value("mapButtonText")</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section id="collaborations">
+    <div class="container">
+        <img src="@collabImageOne" alt="">
+        <img src="@collabImageTwo" alt="">
+        <img src="@collabImageThree" alt="">
+        <img src="@collabImageFour" alt="">
+        <img src="@collabImageFive" alt="">
+        <img src="@collabImageSix" alt="">
+    </div>
+</section>

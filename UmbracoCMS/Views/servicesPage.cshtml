@@ -1,0 +1,153 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+    var cardOneImage = Model?.Value<IPublishedContent>("servicesCardOneImage")?.Url() ?? "";
+    var cardTwoImage = Model?.Value<IPublishedContent>("servicesCardTwoImage")?.Url() ?? "";
+    var cardThreeImage = Model?.Value<IPublishedContent>("servicesCardThreeImage")?.Url() ?? "";
+    var cardFourImage = Model?.Value<IPublishedContent>("servicesCardFourImage")?.Url() ?? "";
+    var cardFiveImage = Model?.Value<IPublishedContent>("servicesCardFiveImage")?.Url() ?? "";
+    var cardSixImage = Model?.Value<IPublishedContent>("servicesCardSixImage")?.Url() ?? "";
+    var contactMainImage = Model?.Value<IPublishedContent>("contactMainImage")?.Url() ?? "";
+    var contactBackgroundOne = Model?.Value<IPublishedContent>("contactBackgroundImageOne")?.Url() ?? "";
+    var contactBackgroundTwo = Model?.Value<IPublishedContent>("contactBackgroundImageTwo")?.Url() ?? "";
+}
+
+<section id="page-title">
+    <div class="container">
+        <div class="content">
+            <h2>@Model?.Value("pageTitleHeadline")</h2>
+            <ul class="breadcrumbs">
+                <li class="breadcrumb-link"><a href="@Model?.Value("servicesBreadcrumbUrl")">@Model?.Value("servicesBreadcrumbText")</a></li>
+                <li class="fa-solid fa-chevron-right"></li>
+                <li class="breadcrumb-link"><a href="#"></a>@Model?.Value("servicesBreadcrumbCurrentText")</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>@Model?.Value("servicesHeadline")</h2>
+        </div>
+        <div class="content">
+            <a class="solutions-card" href="/services/risk-management/">
+                <div class="solutions-card__title">
+                    <h5>@Model?.Value("servicesCardOneTitle")</h5>
+                </div>
+                <div class="solutions-card__image">
+                    <img src="@cardOneImage" alt="">                          
+                </div>
+                <div class="solutions-card__footer">
+                    <p class="text-s">@Model?.Value("servicesCardOneText")</p>
+                </div>
+            </a>
+
+            <a class="solutions-card" href="#">
+                <div class="solutions-card__title">
+                    <h5>@Model?.Value("servicesCardTwoTitle")</h5>
+                </div>
+                <div class="solutions-card__image">
+                    <img src="@cardTwoImage" alt="">                          
+                </div>
+                <div class="solutions-card__footer">
+                    <p class="text-s">@Model?.Value("servicesCardTwoText")</p>
+                </div>
+            </a>
+
+            <a class="solutions-card" href="#">
+                <div class="solutions-card__title">
+                    <h5>@Model?.Value("servicesCardThreeTitle")</h5>
+                </div>
+                <div class="solutions-card__image">
+                    <img src="@cardThreeImage" alt="">                          
+                </div>
+                <div class="solutions-card__footer">
+                    <p class="text-s">@Model?.Value("servicesCardThreeText")</p>
+                </div>
+            </a>
+
+            <a class="solutions-card" href="#">
+                <div class="solutions-card__title">
+                    <h5>@Model?.Value("servicesCardFourTitle")</h5>
+                </div>
+                <div class="solutions-card__image">
+                    <img src="@cardFourImage" alt="">                          
+                </div>
+                <div class="solutions-card__footer">
+                    <p class="text-s">@Model?.Value("servicesCardFourText")</p>
+                </div>
+            </a>
+
+            <a class="solutions-card" href="#">
+                <div class="solutions-card__title">
+                    <h5>@Model?.Value("servicesCardFiveTitle")</h5>
+                </div>
+                <div class="solutions-card__image">
+                    <img src="@cardFiveImage" alt="">                          
+                </div>
+                <div class="solutions-card__footer">
+                    <p class="text-s">@Model?.Value("servicesCardFiveText")</p>
+                </div>
+            </a>
+
+            <a class="solutions-card" href="#">
+                <div class="solutions-card__title">
+                    <h5>@Model?.Value("servicesCardSixTitle")</h5>
+                </div>
+                <div class="solutions-card__image">
+                    <img src="@cardSixImage" alt="">                          
+                </div>
+                <div class="solutions-card__footer">
+                    <p class="text-s">@Model?.Value("servicesCardSixText")</p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="pagination">
+            <ul>
+                <li><a href="#" class="prev">Prev</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#" class="next">Next</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="contact-info">
+    <div class="container">
+        <div class="parent">
+            <img class="child-1" src="@contactMainImage" alt="">
+            <img class="child-2" src="@contactBackgroundOne" alt="">
+            <img class="child-3" src="@contactBackgroundTwo" alt="">
+        </div>
+        <div class="content">
+            <h2>@Model?.Value("contactHeadline")</h2>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>@Model?.Value("contactBoxOneTitle")</p>
+                </div>
+                <p>@Model?.Value("contactBoxOneText")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>@Model?.Value("contactBoxTwoTitle")</p>
+                </div>
+                <p>@Model?.Value("contactBoxTwoText")</p>
+            </div>
+            <div class="content-box">
+                <div>
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>@Model?.Value("contactBoxThreeTitle")</p>
+                </div>
+                <p>@Model?.Value("contactBoxThreeText")</p>
+            </div>
+        </div>
+    </div>
+</section>
